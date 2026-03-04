@@ -1,44 +1,77 @@
 # Detection Rules
 
-Detection rules were created using Graylog Event Definitions to identify suspicious authentication activity.
+Detection rules were created in Graylog using Event Definitions to identify suspicious activity in authentication logs.
+
+---
 
 ## SSH Brute Force Detection
 
-Query:
-message:"Failed password"
+Objective:
+
+Detect repeated failed SSH login attempts from the same source.
+
+Query used: message:"Failed password"
+
 
 Configuration:
 
-- Search window: 5 minutes
-- Trigger condition: count() > 10
-- Group by: source
+- Search within: 5 minutes
+- Execute search every: 1 minute
+- Group by: source IP
+- Condition: count() > 10
+
+Alert Trigger:
+
+If more than 10 failed login attempts occur within 5 minutes from the same source, an alert is triggered.
 
 Purpose:
-Detect repeated failed login attempts from the same IP address.
+
+This rule helps detect brute-force attacks where an attacker repeatedly attempts to guess passwords.
 
 ---
 
 ## Successful Login Monitoring
 
-Query:
-message:"Accepted password"
+Objective:
+
+Detect successful SSH login events.
+
+Query used: message:"Accepted password"
+
 
 Purpose:
-Monitor successful SSH logins, especially following multiple failed attempts.
+
+Successful logins following multiple failed attempts may indicate a compromised account.
+
+Monitoring these events helps analysts investigate suspicious login activity.
 
 ---
 
 ## Sudo Activity Monitoring
 
-Query:
-message:"sudo"
+Objective:
 
+Monitor privilege escalation activity.
+
+Query used: message:"sudo"
 
 Purpose:
-Track privilege escalation activity on the system.
+
+Sudo commands allow users to execute administrative actions. Monitoring sudo activity helps detect unauthorized privilege escalation attempts.
 
 ---
 
 ## Alert Notifications
 
-When a rule is triggered, Graylog sends an email notification containing event details and timestamps. For each alert, a an email notification was created.
+When detection rules are triggered, Graylog sends an email notification using the configured SMTP server.
+
+Alert notifications include:
+
+- Event name
+- Timestamp
+- Source IP
+- Event details
+
+
+
+
