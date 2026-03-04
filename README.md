@@ -99,3 +99,24 @@ Graylog-SOC-Lab
 ## Author
 
 Faith Okonoboh
+
+## Screenshots
+
+### Graylog Dashboard
+![Dashboard](screenshots/dashboard-1.png)
+![Dashboard](screenshots/dashboard-2.png)
+
+### Stream Rules
+![Streams](screenshots/stream-rules.png)
+
+### Event Definitions
+![Events](screenshots/event-definition1.png)
+![Events](screenshots/event-definition2.png)
+
+
+### Alert Notification
+![Alert](screenshots/alert-notification.png)
+
+### Logs
+![Logs](screenshots/logs1.png)
+![Logs](screenshots/logs2.png)
