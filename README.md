@@ -131,6 +131,13 @@ Graylog-SOC-Lab
 
 ---
 
+## Graylog Content Pack
+
+This repository includes a Graylog content pack that allows the SOC lab configuration 
+(streams, alerts, dashboards, and inputs) to be imported into another Graylog instance.
+
+---
+
 ## Future Improvements
 
 - Add Windows event log monitoring
