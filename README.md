@@ -9,6 +9,28 @@ The objective of this project is to simulate real-world **security monitoring an
 
 ---
 
+## Lab Architecture
+
+The SOC lab consists of a single Ubuntu system generating authentication logs which are forwarded to a Graylog server using rsyslog over Syslog TCP.
+
+Graylog processes the logs, applies detection rules, and stores indexed log data in OpenSearch for searching and analysis. MongoDB is used by Graylog to store configuration and metadata.
+
+When suspicious activity is detected, Graylog triggers alerts and sends email notifications to the analyst.
+
+Log Flow:
+
+Ubuntu System Logs
+↓
+rsyslog (Syslog TCP)
+↓
+Graylog SIEM
+↓
+Detection Rules / Streams
+↓
+OpenSearch (Log Storage)
+↓
+Alert Notifications (Email)
+
 ## Technologies Used
 
 - Graylog 4.3.15
@@ -50,7 +72,25 @@ The system generates alerts when suspicious activity is detected such as:
 
 ---
 
-## Dashboard
+## Incident Response and Remediation
+
+When a detection rule is triggered, Graylog generates an alert and sends an email notification to the analyst.
+
+In a real SOC environment, these alerts would typically create incident tickets in an incident management platform such as ServiceNow or Jira for investigation.
+
+Typical analyst response workflow:
+
+1. Alert is received via email notification.
+2. Analyst reviews the logs in Graylog.
+3. The source IP and user activity are investigated.
+4. If malicious activity is confirmed, remediation actions may include:
+   - Blocking the attacker IP address
+   - Disabling compromised user accounts
+   - Investigating additional related logs
+
+This project simulates the detection and alerting phase of the SOC workflow while demonstrating how incidents would be investigated and mitigated.
+
+## SOC Dashboard
 
 The dashboard provides visualization of security activity including:
 
