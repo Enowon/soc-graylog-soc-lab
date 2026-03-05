@@ -161,6 +161,11 @@ Faith Okonoboh
 ### Alert Notification
 ![Alert](screenshots/alert-notification.png)
 
+### Alerts
+![Alert](screenshots/alert1.png)
+![Alert](screenshots/alert2.png)
+
+
 ### Logs
 ![Logs](screenshots/logs1.png)
 ![Logs](screenshots/logs2.png)
