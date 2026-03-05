@@ -31,6 +31,8 @@ OpenSearch (Log Storage)
 ↓
 Alert Notifications (Email)
 
+---
+
 ## Technologies Used
 
 - Graylog 4.3.15
@@ -89,6 +91,8 @@ Typical analyst response workflow:
    - Investigating additional related logs
 
 This project simulates the detection and alerting phase of the SOC workflow while demonstrating how incidents would be investigated and mitigated.
+
+---
 
 ## SOC Dashboard
 
